@@ -1,0 +1,45 @@
+## Environment Setup 
+
+### Step1 : Open the GitBash / console / cmder / powershell 
+
+### Step2 : cd devops-lab/vagrant-setup/devops
+
+### Step3 : Now check the Vagrant Status 
+```
+vagrant.exe status 
+```
+
+### Step4 : Bring up the master virtalbox instances 
+```
+vagrant.exe up master
+```
+
+### Step5 : Let's Login to master node.
+```
+vagrant.exe ssh master
+```
+
+### Step6 : Become a super user
+```
+sudo su - 
+```
+
+
+ 
+## Extra Vagrant Command  :
+### Bring up a specific virtalbox instances 
+```
+vagrant.exe status 
+vagrant.exe up master 
+```
+### Bring down a specific virtalbox instances 
+```
+vagrant.exe status 
+vagrant.exe halt master 
+```
+
+### Destroy a specific virtalbox instances 
+```
+vagrant.exe status 
+vagrant.exe destroy master 
+```
