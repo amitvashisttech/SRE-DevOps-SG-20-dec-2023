@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-toleration
+  labels:
+    app: helloworld-3-toleration
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld-3-toleration
+  template:
+    metadata:
+      labels:
+        app: helloworld-3-toleration
+    spec:
+      containers:
+      - name: k8s-demo
+        image: amitvashist7/k8s-tiny-web
+        ports:
+        - name: node-port
+          containerPort: 80
