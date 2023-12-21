@@ -1,0 +1,105 @@
+   28  cd 03-DockerImages/
+   29  tree .
+   30  cd webserver/v1/
+   31  ls
+   32  docker build -t my-webserver .
+   33  docker images 
+   34  docker run -d --name web-1 my-webserver 
+   35  docker ps
+   36  docker inspect $(docker ps -l)
+   37  docker inspect $(docker ps -lq)
+   38  curl 172.17.0.7
+   39  docker run -d --name web-2 my-webserver 
+   40  curl 172.17.0.8
+   41  docker ps 
+   42  ls
+   43  cd ..
+   44  ls
+   45  cp -rf v1 v2 
+   46  ls
+   47  cd v2/
+   48  ls
+   49  docker build -t my-webserver:v2 .
+   50  docker images 
+   51  docker tag 2921af177d98 my-webserver:v1 
+   52  docker images 
+   53  cd  
+   54  docker run -d --name web-3 my-webserver:v2
+   55  docker ps 
+   56  curl 172.17.0.9
+   57  curl 172.17.0.9/info.html
+   58  curl 172.17.0.9:80/info.html
+   59  ls
+   60  cd - 
+   61  ls
+   62  cd ..
+   63  ls
+   64  cp -rf v2 v3 
+   65  ls
+   66  cd v3/
+   67  docker ps 
+   68  ls
+   69  docker build -t my-webserver:v3 .
+   70  docker build -t my-webserver:v3 -f MyDockerfile .
+   71  ls
+   72  docker images 
+   73  docker run -d --name web-4 my-webserver:v3
+   74  docker ps 
+   75  curl 172.17.0.10:80/info.html
+   76  ls
+   77  cd ..
+   78  ls
+   79  cp -rf v3 v4 
+   80  cd v4/
+   81  docker build -t my-webserver:v4 -f MyDockerfile .
+   82  docker run -d --name web-5 my-webserver:v4
+   83  docker ps 
+   84  curl 172.17.0.11:80/info.html
+   85  curl 172.17.0.11:80/info3306tml
+   86  curl 172.17.0.11:3306/info.html
+   87  ls
+   88  cd ..
+   89  ls
+   90  cd ..
+   91  ls
+   92  history > history.txt 
+
+
+
+## Save & Load Docker Images 
+
+  130  docker images 
+  131  docker save 88dbf5117d80 > myimage.tar.gz
+
+## You can copy the saved tarball to the desination server & restore with the below commands
+
+  133 docker load < myimage.tar.gz 
+  134 docker tag <restore_image_id> myimage:v1 
+  135 docker run -d myimage:v1
+
+
+## IMAGE MGMT
+ docker login
+   49  docker push docker-k8s-ericsson-e-11-sept-2023:v1
+   50  docker login
+   51  docker tag docker-k8s-ericsson-e-11-sept-2023:v1 amitvashist7/docker-k8s-ericsson-e-11-sept-2023:v1
+   52  docker tag docker-k8s-ericsson-e-11-sept-2023:v2 amitvashist7/docker-k8s-ericsson-e-11-sept-2023:v2
+   53  docker push  amitvashist7/docker-k8s-ericsson-e-11-sept-2023:v1
+   54  docker push  amitvashist7/docker-k8s-ericsson-e-11-sept-2023:v2
+   55  docker push  amitvashist7 docker-k8s-ericsson-e-11-sept-2023:v3
+   56  docker push  amitvashist7/docker-k8s-ericsson-e-11-sept-2023:v3
+   57  docker tag docker-k8s-ericsson-e-11-sept-2023:v3 amitvashist7/docker-k8s-ericsson-e-11-sept-2023:v3
+   58  docker push  amitvashist7/docker-k8s-ericsson-e-11-sept-2023:v3
+   59  docker logout
+   60  docker kill $(docker ps -q) ; docker rm  $(docker ps -qa)
+   61  docker ps -a
+   62  ls
+   63  docker images
+   64  docker images -q
+   65  docker rmi $(docker images -q)
+   66  docker rmi $(docker images -q) --force
+   67  docker images
+   68  docker run -d --name web-1  amitvashist7/docker-k8s-ericsson-e-11-sept-2023:v3
+   69  docker ps
+   70  curl 172.17.0.2/info.html
+   71  docker images
