@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-toleration
+  labels:
+    app: helloworld-3-toleration
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld-3-toleration
+  template:
+    metadata:
+      labels:
+        app: helloworld-3-toleration
+    spec:
+      containers:
+      - name: k8s-demo
+        image: amitvashist7/k8s-tiny-web
+        ports:
+        - name: node-port
+          containerPort: 80
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule" 
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: team
+                operator: In
+                values:
+                - red
