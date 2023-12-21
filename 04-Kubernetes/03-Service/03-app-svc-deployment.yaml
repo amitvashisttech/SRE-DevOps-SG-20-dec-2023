@@ -33,7 +33,7 @@ spec:
       - name: regcred
       containers:
       - name: k8s-demo
-        image: amitvashist7/mypython-web-app:v4
+        image: docker.io/amitvashist7/mypython-web-app:v4
         imagePullPolicy: IfNotPresent
         ports:
         - name: myapp-port
