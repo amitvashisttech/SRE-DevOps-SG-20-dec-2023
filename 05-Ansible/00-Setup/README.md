@@ -32,7 +32,9 @@ sudo su -
 
 ### Step7 : Clone our Ansible Repo. 
 ```
-git clone https://github.com/amitvashisttech/ansible-wallmart-04-Dec-2023.git
+git clone https://github.com/amitvashisttech/SRE-DevOps-SG-20-dec-2023.git
+cd SRE-DevOps-SG-20-dec-2023/05-Ansible/
+cat 00-Setup/README.md
 ```
 
 
