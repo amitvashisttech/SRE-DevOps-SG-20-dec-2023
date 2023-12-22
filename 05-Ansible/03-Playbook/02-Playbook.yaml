@@ -1,0 +1,6 @@
+---
+- hosts: web
+  tasks: 
+  - apt: name=tree state=present
+  - apt: name=apache2 state=present
+  - apt: name=net-tools state=present

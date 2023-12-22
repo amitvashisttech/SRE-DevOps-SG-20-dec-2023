@@ -1,0 +1,11 @@
+---
+- hosts: web
+  tasks: 
+  - name: Install Tree Package
+    apt: name=tree state=present
+
+  - name: Install Apache Package
+    apt: name=apache2 state=present
+
+  - name: Install Network Tools Package
+    apt: name=net-tools state=present

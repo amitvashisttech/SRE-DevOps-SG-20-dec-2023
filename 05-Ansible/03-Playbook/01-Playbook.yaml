@@ -1,0 +1,11 @@
+---
+
+# This is my first playbook 
+#
+# And the following is going to be my first play.
+#
+
+- hosts: 172.31.0.101
+  tasks: 
+  - apt: name=tree state=present
+
