@@ -1,0 +1,18 @@
+  185  cd 02-Modules/
+  186  ls
+  187  cat hosts
+  188  ls
+  189  ansible-doc  -l
+  190  ansible-doc  -l | wc -l
+  191  cat /etc/os-release
+  192  ansible-doc  apt
+  193  ls
+  194  ansible 172.31.0.101 -i hosts -m apt -a "name=tree state=present"
+  195  ansible 172.31.0.101 -i hosts -m apt -a "name=tree state=present" -b
+  197  df -h /
+  198  ansible web -i hosts -m command -a " df -h /" -b
+  199  ansible web -i hosts -m command -a "uname -a" -b
+  200  ansible web -i hosts -m command -a "cat /etc/os-release" -b
+  201  ansible web -i hosts -m command -a "cat /etc/*-release" -b
+  202  echo $SHELL
+  203  ansible web -i hosts -m shell -a "cat /etc/*-release" -b
